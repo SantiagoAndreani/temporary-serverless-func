@@ -6,6 +6,7 @@ const fetchData = async () => {
     const {data} = await axios.get('/api/2-basic-api')
 
     const products = data.map(product => {
+      
       const {image:{url}, name, price} = product
       return `
         <article class="product">
@@ -19,7 +20,7 @@ const fetchData = async () => {
           </div>
       </article>`
     }).join('')
-    
+
     result.innerHTML = products
 
   } catch (error) {
